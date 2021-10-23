@@ -1,0 +1,16 @@
+// example variables
+$font-weights: (
+  "regular": 400,
+  "medium": 500,
+  "bold": 700,
+);
+
+$colors: (
+  "color-black": #000,
+  "color-white": #fff,
+);
+
+//using variables
+body {
+  font-weight: map-get($map: $font-weights, $key: regular);
+}

@@ -1,0 +1,57 @@
+$column-count: 12;
+
+@for $i from 1 through $column-count {
+  .col-#{$i} {
+    flex: 0 0 100% / $column-count * $i;
+    margin-bottom: 10px;
+  }
+
+  .col-offset-#{$i} {
+    margin-left: 100% / $column-count * $i;
+  }
+
+  .col-sm-#{$i} {
+    @include media(small-device) {
+      flex: 0 0 100% / $column-count * $i !important;
+    }
+  }
+  .col-md-#{$i} {
+    @include media(tablet) {
+      flex: 0 0 100% / $column-count * $i !important;
+    }
+  }
+  .col-lg-#{$i} {
+    @include media(laptop) {
+      flex: 0 0 100% / $column-count * $i !important;
+    }
+  }
+  .col-xl-#{$i} {
+    @include media(desktop) {
+      flex: 0 0 100% / $column-count * $i !important;
+    }
+  }
+  .col-xxl-#{$i} {
+    @include media(large-desktop) {
+      flex: 0 0 100% / $column-count * $i !important;
+    }
+  }
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+.container-fluid {
+  width: 100%;
+  margin: 0;
+}
+
+div[class^="col-"] {
+  background-color: red;
+  border: 2px solid gray;
+  box-sizing: border-box;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,39 @@
+//predefined margin classes
+$margin-size: 5;
+@for $i from 1 through $margin-size {
+  .m-#{$i} {
+    margin: #{$i}rem;
+  }
+  .mt-#{$i} {
+    margin-top: #{$i}rem;
+  }
+  .mr-#{$i} {
+    margin-right: #{$i}rem;
+  }
+  .mb-#{$i} {
+    margin-bottom: #{$i}rem;
+  }
+  .ml-#{$i} {
+    margin-left: #{$i}rem;
+  }
+}
+
+//predefined padding classes
+$padding-size: 5;
+@for $i from 1 through $padding-size {
+  .p-#{$i} {
+    padding: #{$i}rem;
+  }
+  .pt-#{$i} {
+    padding-top: #{$i}rem;
+  }
+  .pr-#{$i} {
+    padding-right: #{$i}rem;
+  }
+  .pb-#{$i} {
+    padding-bottom: #{$i}rem;
+  }
+  .pl-#{$i} {
+    padding-left: #{$i}rem;
+  }
+}

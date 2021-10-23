@@ -1,0 +1,31 @@
+{
+  "name": "map-application",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "browser-sync": "^2.27.4",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^4.0.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-sequence": "^1.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp4-run-sequence": "^1.0.1",
+    "node-sass": "^6.0.1"
+  },
+  "dependencies": {
+    "gulp-fs-cache": "^0.1.0"
+  }
+}
