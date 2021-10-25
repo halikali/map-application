@@ -1,4 +1,12 @@
+let eventType = document.getElementById("event__type").value,
+  eventName = document.getElementById("event__name");
+
+const eventList = document.getElementById("event__list"),
+  submitButton = document.getElementById("submit-button");
+
 const eventsArr = [];
+
+let newCoords;
 
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(
@@ -19,17 +27,31 @@ if (navigator.geolocation) {
         console.log(`mapEvents => `, mapEvents);
         const { lat, lng } = mapEvents.latlng;
         console.log(`lat,lng => `, lat, lng);
-        L.marker([lat, lng])
-          .addTo(map)
-          .bindPopup(`Seçilen nokta burası => ${lat} ${lng}`)
-          .openPopup();
+        L.marker([lat, lng]).addTo(map).bindPopup(`${lat}--${lng}`).openPopup();
 
-        eventsArr.push({ lat, lng });
-        console.log(eventsArr);
+        newCoords = { lat, lng };
       });
     },
     function () {
-      alert("could not get your position.");
+      alert("Tarayıcı konumunuzu algılayamadı.");
     }
   );
 }
+
+submitButton.addEventListener("click", () => {
+  let eventObj = {
+    eventName: eventName.value,
+    eventType: eventType,
+    coords: newCoords,
+  };
+
+  eventsArr.push(eventObj);
+
+  eventsArr.map((item) => {
+    let div = document.createElement("DIV");
+    div.classList.add("event__item");
+    div.innerHTML = `<div class="event__item" > <p> ${item.eventName} </p> <p> ${item.eventType} </p> <p> ${item.coords.lat} - ${item.coords.lng} </p> </div>`;
+    eventList.appendChild(div);
+    console.log(`evenstArr`, eventsArr);
+  });
+});

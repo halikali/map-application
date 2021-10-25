@@ -22,18 +22,21 @@
   </head>
   <body>
     <main class="section--main">
-      <form>
-        <label for="">Etkinliğin adı</label>
-        <input type="text" />
-        <label for="">Etkinliğin türü</label>
-        <select id="">
-          <option value="">Yürüyüş</option>
-          <option value="">Bisiklet Sürme</option>
-          <option value="">Koşu</option>
-          <option value="">Tanışma</option>
-        </select>
-        <a class="submit-button">Kaydet</a>
-      </form>
+      <div class="form-wrapper">
+        <form>
+          <label for="event__name">Etkinliğin adı</label>
+          <input id="event__name" type="text" />
+          <label for="event__type">Etkinliğin türü</label>
+          <select id="event__type">
+            <option value="walking">Yürüyüş</option>
+            <option value="cycling">Bisiklet Sürme</option>
+            <option value="running">Koşu</option>
+            <option value="meet">Tanışma</option>
+          </select>
+          <a id="submit-button">Kaydet</a>
+        </form>
+        <div id="event__list"></div>
+      </div>
       <div id="map"></div>
     </main>
   </body>
