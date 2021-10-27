@@ -19,7 +19,7 @@ body {
       align-items: flex-start;
       flex-direction: column;
 
-      .submit-button {
+      #submit-button {
         width: 100%;
         height: 30px;
         margin-top: 10px;
@@ -29,5 +29,26 @@ body {
         cursor: pointer;
       }
     }
+  }
+}
+
+#event__list{
+  height: 500px;
+  scroll-behavior: smooth;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.event__item{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: salmon;
+  flex-wrap: wrap;
+  height: 100px;
+  margin: 10px 0;
+  p{
+    width: 50%;
+    text-align: center;
   }
 }

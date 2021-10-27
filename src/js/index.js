@@ -1,5 +1,7 @@
 let eventType = document.getElementById("event__type").value,
-  eventName = document.getElementById("event__name");
+  eventName = document.getElementById("event__name"),
+  eventDate = document.getElementById("event__date"),
+  eventTime = document.getElementById("event__time");
 
 const eventList = document.getElementById("event__list"),
   submitButton = document.getElementById("submit-button");
@@ -7,6 +9,7 @@ const eventList = document.getElementById("event__list"),
 const eventsArr = [];
 
 let newCoords;
+let enabled = true;
 
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(
@@ -24,12 +27,17 @@ if (navigator.geolocation) {
       }).addTo(map);
 
       map.on("click", (mapEvents) => {
-        console.log(`mapEvents => `, mapEvents);
-        const { lat, lng } = mapEvents.latlng;
-        console.log(`lat,lng => `, lat, lng);
-        L.marker([lat, lng]).addTo(map).bindPopup(`${lat}--${lng}`).openPopup();
-
-        newCoords = { lat, lng };
+        if (enabled) {
+          console.log(`mapEvents => `, mapEvents);
+          const { lat, lng } = mapEvents.latlng;
+          console.log(`lat,lng => `, lat, lng);
+          L.marker([lat, lng]).addTo(map).bindPopup(`${lat}--${lng}`).openPopup();
+          newCoords = {
+            lat,
+            lng,
+          };
+          enabled = false
+        }
       });
     },
     function () {
@@ -42,16 +50,23 @@ submitButton.addEventListener("click", () => {
   let eventObj = {
     eventName: eventName.value,
     eventType: eventType,
+    eventDate: eventDate.value,
+    eventTime: eventTime.value,
     coords: newCoords,
   };
-
   eventsArr.push(eventObj);
+  console.log(eventTime);
+  let html = "";
 
   eventsArr.map((item) => {
-    let div = document.createElement("DIV");
-    div.classList.add("event__item");
-    div.innerHTML = `<div class="event__item" > <p> ${item.eventName} </p> <p> ${item.eventType} </p> <p> ${item.coords.lat} - ${item.coords.lng} </p> </div>`;
-    eventList.appendChild(div);
-    console.log(`evenstArr`, eventsArr);
+    html += `
+    <div class="event__item">
+      <p class="event__name">${item.eventName}</p>
+      <p class="event__type"> ${item.eventType}</p>
+      <p class="event__date">${item.eventDate}</p>
+      <p class="event__time">${item.eventTime}</p>
+    </div>`;
+    eventList.innerHTML = html;
+    enabled = true
   });
 });

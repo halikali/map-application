@@ -1,43 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Geolocation</title>
-    <link rel="stylesheet" href="./css/style.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-      crossorigin=""
-    />
-    <script
-      defer
-      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-      crossorigin=""
-    ></script>
-    <script defer src="./js/app.min.js"></script>
-  </head>
-  <body>
-    <main class="section--main">
-      <div class="form-wrapper">
-        <form>
-          <label for="event__name">Etkinliğin adı</label>
-          <input id="event__name" type="text" />
-          <label for="event__type">Etkinliğin türü</label>
-          <select id="event__type">
-            <option value="walking">Yürüyüş</option>
-            <option value="cycling">Bisiklet Sürme</option>
-            <option value="running">Koşu</option>
-            <option value="meet">Tanışma</option>
-          </select>
-          <a id="submit-button">Kaydet</a>
-        </form>
-        <div id="event__list"></div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geolocation</title>
+  <link rel="stylesheet" href="./css/style.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="" />
+  <script defer src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+  <script defer src="./js/app.min.js"></script>
+</head>
+
+<body>
+  <main class="section--main">
+    <div class="form-wrapper">
+      <form>
+        <label for="event__name">Etkinliğin adı</label>
+        <input id="event__name" type="text" />
+
+        <label for="event__date">Etkinliğin tarihi</label>
+        <input id="event__date" type="text" />
+
+        <label for="event__time">Etkinliğin saati</label>
+        <input id="event__time" type="text" />
+
+        <label for="event__type">Etkinliğin türü</label>
+        <select id="event__type">
+          <option value="walking">Yürüyüş</option>
+          <option value="cycling">Bisiklet Sürme</option>
+          <option value="running">Koşu</option>
+          <option value="meet">Tanışma</option>
+        </select>
+        <a id="submit-button">Kaydet</a>
+      </form>
+      <div id="event__list">
       </div>
-      <div id="map"></div>
-    </main>
-  </body>
+    </div>
+    <div id="map"></div>
+  </main>
+</body>
+
 </html>
